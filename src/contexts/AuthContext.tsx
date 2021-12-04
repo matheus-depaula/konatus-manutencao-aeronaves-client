@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { User } from '../entities/User';
 import { loginUserUseCase } from '../useCases/User/LoginUser';
@@ -33,7 +33,7 @@ export function AuthContextProvider({ children }: IAuthContextProvider) {
 
       setUser(userInfo);
     } catch (err) {
-      errorToast(err.response.data.message);
+      errorToast(err.response?.data?.message || err?.message || 'Erro inesperado.');
     }
   };
 
@@ -42,6 +42,14 @@ export function AuthContextProvider({ children }: IAuthContextProvider) {
 
     setUser(null);
   };
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem('@App:user');
+
+    if (!userInfo) return;
+
+    setUser(JSON.parse(userInfo));
+  }, []);
 
   return <AuthContext.Provider value={{ user, login, logout }}>{children}</AuthContext.Provider>;
 }
