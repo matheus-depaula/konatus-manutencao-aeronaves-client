@@ -1,3 +1,4 @@
+import { Stage } from '../../../entities/Stage';
 import { MaintenanceStatus } from '../../../entities/Maintenance';
 
 export interface IGetMaintenanceDTO {
@@ -9,5 +10,5 @@ export interface IGetMaintenanceDTO {
     id: string;
     login: string;
   };
-  stages: any[];
+  stages: Stage[];
 }

@@ -1,4 +1,4 @@
 export abstract class User {
-  public login: string;
-  public token: string;
+  login: string;
+  token: string;
 }

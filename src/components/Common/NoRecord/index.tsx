@@ -1,12 +1,14 @@
 import { FaTools } from 'react-icons/fa';
+import Loader from 'react-loader-spinner';
 
 import { Container } from './styles';
 
 interface INoRecord {
   record: 'maintenance' | 'stage';
+  isLoading: boolean;
 }
 
-export function NoRecord({ record }: INoRecord) {
+export function NoRecord({ record, isLoading }: INoRecord) {
   const label = {
     maintenance: 'manutenções',
     stage: 'etapas',
@@ -14,8 +16,14 @@ export function NoRecord({ record }: INoRecord) {
 
   return (
     <Container>
-      <FaTools size={56} />
-      <h2>Sem {label[record]} cadastradas</h2>
+      {isLoading ? (
+        <Loader type="Grid" color="#ec6c04" height={56} width={56} />
+      ) : (
+        <>
+          <FaTools size={56} />
+          <h2>Sem {label[record]} cadastradas</h2>
+        </>
+      )}
     </Container>
   );
 }

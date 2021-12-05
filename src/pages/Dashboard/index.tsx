@@ -18,6 +18,7 @@ export function Dashboard() {
   const { errorToast } = useToastify();
   const { isModalOpen, openModal, closeModal } = useModal();
 
+  const [isLoading, setIsLoading] = useState(true);
   const [maintenances, setMaintenances] = useState<IListMaintenancesDTO[]>([]);
 
   async function getMaintenances() {
@@ -29,6 +30,8 @@ export function Dashboard() {
       setMaintenances(_maintenances);
     } catch (err) {
       errorToast(err.response?.data?.message || err?.message || 'Erro inesperado.');
+    } finally {
+      setTimeout(() => setIsLoading(false), 1000);
     }
   }
 
@@ -50,7 +53,7 @@ export function Dashboard() {
               <MaintenanceCard key={e.id} maintenance={e} />
             ))}
 
-            {maintenances.length === 0 && <NoRecord record="maintenance" />}
+            {maintenances.length === 0 && <NoRecord record="maintenance" isLoading={isLoading} />}
           </main>
         </div>
       </Container>

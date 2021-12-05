@@ -7,6 +7,7 @@ import { GlobalStyle } from './styles/global';
 import { AuthContextProvider } from './contexts/AuthContext';
 
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 Modal.setAppElement('#root');
 
