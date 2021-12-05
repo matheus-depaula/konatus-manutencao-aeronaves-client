@@ -22,7 +22,14 @@ export const Container = styled.div`
         justify-content: space-between;
 
         h1 {
+          display: flex;
+          align-items: center;
+
           font-size: 1.8rem;
+
+          svg {
+            margin: 0 0.2rem;
+          }
         }
 
         button {
