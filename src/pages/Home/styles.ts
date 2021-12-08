@@ -8,8 +8,10 @@ export const Container = styled.div`
 
   .wrapper {
     width: 720px;
-    height: 300px;
+    margin: 1rem;
+
     display: flex;
+    flex-wrap: wrap;
     align-self: center;
 
     background: var(--white);
@@ -17,9 +19,15 @@ export const Container = styled.div`
     border-bottom: solid 3px var(--primary);
     border-radius: 0.5rem;
 
+    @media (max-width: 533px) {
+      aside {
+        padding-top: 0 !important;
+      }
+    }
+
     main {
       flex: 2;
-      padding: 1rem;
+      padding: 2rem;
 
       img {
         width: 300px;

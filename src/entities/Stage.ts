@@ -14,6 +14,6 @@ export abstract class Stage {
   description: string;
   status: StageStatus;
   type: StageType;
-  value: string;
+  value?: string | number;
   createdAt: string;
 }

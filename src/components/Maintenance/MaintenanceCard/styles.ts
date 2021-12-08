@@ -18,7 +18,14 @@ export const Container = styled.div<IContainer>`
 
   cursor: pointer;
 
-  .status {
-    color: ${props => (props.status === 0 ? '#ec6c04' : '#42c242')};
+  div {
+    display: flex;
+    align-items: baseline;
+
+    .status {
+      margin-left: 0.5rem;
+
+      color: ${props => (props.status === 0 ? '#ec6c04' : '#42c242')};
+    }
   }
 `;

@@ -41,7 +41,7 @@ export function Home() {
               type="text"
               placeholder="Usuário"
               required
-              value={formFields.login}
+              value={formFields.login || ''}
               onChange={e => setFormFields({ ...formFields, login: e.target.value })}
             />
 
@@ -49,7 +49,7 @@ export function Home() {
               type="password"
               placeholder="Senha"
               required
-              value={formFields.password}
+              value={formFields.password || ''}
               onChange={e => setFormFields({ ...formFields, password: e.target.value })}
             />
 

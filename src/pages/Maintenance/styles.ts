@@ -27,22 +27,40 @@ export const Container = styled.div`
 
           font-size: 1.8rem;
 
+          text-overflow: ellipsis;
+
           svg {
             margin: 0 0.2rem;
           }
         }
 
-        button {
-          padding: 0.4rem;
+        div {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
 
-          font-weight: 700;
-          border-width: 1px;
-          border-radius: 0.2rem;
+          button {
+            padding: 0.4rem;
 
-          transition: background 0.3s;
+            font-weight: 700;
+            border-width: 1px;
+            border-radius: 0.2rem;
 
-          &:hover {
-            background: var(--white-200);
+            transition: background 0.3s;
+
+            &:hover {
+              background: var(--white-200);
+            }
+
+            & + button {
+              color: var(--white);
+              background: var(--green-300);
+              border-color: var(--green-400);
+
+              &:hover {
+                background: var(--green-400);
+              }
+            }
           }
         }
       }

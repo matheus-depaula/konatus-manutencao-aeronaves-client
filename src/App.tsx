@@ -1,3 +1,4 @@
+import 'moment/locale/pt-br';
 import Modal from 'react-modal';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Switch } from 'react-router-dom';
@@ -18,7 +19,7 @@ function App() {
         <AuthContextProvider>
           <Routes />
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             theme="colored"
             autoClose={5000}
             closeOnClick
